@@ -13,8 +13,6 @@ export default function PostWritePage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const [id, setId] = useState(-1);
-
   useEffect(() => {}, []);
 
   return (
@@ -22,7 +20,7 @@ export default function PostWritePage() {
       <TitleInput
         placeholder="타이틀을 입력해주세요."
         value={title}
-        onChange={(e) => setTitle(e.target.title)}
+        onChange={(e) => setTitle(e.target.value)}
         type="text"
       ></TitleInput>
       <Space height={20}></Space>
@@ -30,7 +28,7 @@ export default function PostWritePage() {
       <ContentInput
         placeholder="내용을 입력해주세요."
         value={content}
-        onChange={(e) => setContent(e.target.title)}
+        onChange={(e) => setContent(e.target.value)}
       ></ContentInput>
       <Space height={20}></Space>
 
@@ -38,10 +36,11 @@ export default function PostWritePage() {
         <Button onClick={() => navigate("/")}>글 목록</Button>
         <Button
           onClick={async () => {
-            await POST_API.CREATE({ title: title, content: content }).then(
-              (res) => setId(res.id)
-            );
-            navigate(`/articles/${id}`);
+            const data = await POST_API.CREATE({
+              title: title,
+              content: content,
+            });
+            navigate(`/articles/${data.id}`);
           }}
         >
           작성 완료
