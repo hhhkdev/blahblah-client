@@ -9,4 +9,10 @@
   - eslint-config-airbnb-typescript
 - prettier
 
+- axios
+
+- @emotion/css
+- @emotion/react
+- @emotion/styled
+
 - [] 현재 eslint 버전과 airbnb style이 버전이 맞지 않음. 해당 내용 수정 필요함.
