@@ -10,7 +10,11 @@ const POST_API = {
     const response = await axiosClient.post(`/articles`, data);
     return response.data;
   },
-  READ: async (id: number) => {
+  READ_ALL: async () => {
+    const response = await axiosClient.get(`/articles/`);
+    return response.data;
+  },
+  READ_ONE: async (id: number) => {
     const response = await axiosClient.get(`/articles/${id}`);
     return response.data;
   },
