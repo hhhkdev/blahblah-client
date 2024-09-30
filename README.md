@@ -2,6 +2,8 @@
 
 단순 게시판 기능을 구현해보자!
 
+백엔드 레포지토리 링크: https://github.com/cmj7271/bare-ground-heading
+
 ### 설치한 라이브러리 목록
 
 - eslint v8
@@ -16,5 +18,3 @@
 - @emotion/styled
 
 - react-router-dom
-
-- [] 현재 eslint 버전과 airbnb style이 버전이 맞지 않음. 해당 내용 수정 필요함.
