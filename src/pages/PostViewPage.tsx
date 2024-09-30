@@ -7,6 +7,15 @@ import ContentBox from "../components/ContentBox";
 import Button from "../components/Button";
 import { Space } from "../utils";
 
+interface Post {
+  id: number;
+  title: string;
+  content: string;
+  createdAt?: string;
+  modifiedAt?: string;
+  author?: string;
+}
+
 export default function PostViewPage() {
   const navigate = useNavigate();
 
@@ -14,7 +23,16 @@ export default function PostViewPage() {
   const [data, setData] = useState(DUMMY_DATA);
 
   useEffect(() => {
-    POST_API.READ_ONE(Number(id)).then((res) => setData(res));
+    POST_API.READ_ONE(Number(id)).then((res) =>
+      setData({
+        id: res.id || -1,
+        title: res.title,
+        content: res.content,
+        createdAt: res.createdAt,
+        modifiedAt: res.createdAt,
+        author: res.author,
+      })
+    );
   }, []);
 
   return (
@@ -64,4 +82,4 @@ const DUMMY_DATA = {
   createdAt: "",
   modifiedAt: "",
   author: "",
-};
+} as Post;

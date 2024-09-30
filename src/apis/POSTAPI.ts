@@ -1,7 +1,7 @@
 import axiosClient from ".";
 
 interface Post {
-  id: number;
+  id?: number;
   title: string;
   content: string;
   createdAt?: string;
@@ -25,7 +25,7 @@ const POST_API = {
     // return response.articles.id;
     const response = await axiosClient.get(``);
     const articles: Array<Post> = response.data.articles;
-    const article = articles.find((obj) => obj.id == id);
+    const article = articles.find((obj) => obj.id == id) as Post;
     return article;
   },
   UPDATE: async (id: number, data: Post) => {
@@ -33,8 +33,7 @@ const POST_API = {
     return response.data;
   },
   DELETE: async (id: number) => {
-    const response = await axiosClient.delete(`articles/${id}`);
-    return response.data;
+    await axiosClient.delete(`articles/${id}`);
   },
 };
 
