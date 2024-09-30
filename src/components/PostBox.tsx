@@ -15,6 +15,12 @@ interface Article {
 
 const PostBox = ({ data }: Article) => {
   const navigate = useNavigate();
+
+  function deleteHandler(id: number) {
+    POST_API.DELETE(id);
+    navigate("/");
+  }
+
   return (
     <Wrapper>
       <div className="box">
@@ -37,10 +43,6 @@ const PostBox = ({ data }: Article) => {
     </Wrapper>
   );
 };
-
-function deleteHandler(id: number) {
-  POST_API.DELETE(id);
-}
 
 const Wrapper = styled.div`
   width: 600px;

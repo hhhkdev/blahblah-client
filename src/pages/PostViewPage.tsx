@@ -20,6 +20,10 @@ export default function PostViewPage() {
   return (
     <Wrapper>
       <TitleBox title={data.title}></TitleBox>
+      <div className="detail">
+        생성 시간 | {data.createdAt} &nbsp;&nbsp;&nbsp; 수정 시간 |{" "}
+        {data.modifiedAt} &nbsp;&nbsp;&nbsp; 작성자 | {data.author}
+      </div>
       <Space height={20}></Space>
       <ContentBox content={data.content}></ContentBox>
       <Space height={20}></Space>
@@ -55,9 +59,9 @@ const Wrapper = styled.div`
 
 const DUMMY_DATA = {
   id: 1,
-  title: "실패",
-  content: "API 연결에 실패했어요.",
-  createdAt: "2024-01-23",
-  modifiedAt: "2024-01-23",
-  auther: "나",
+  title: "",
+  content: "",
+  createdAt: "",
+  modifiedAt: "",
+  author: "",
 };

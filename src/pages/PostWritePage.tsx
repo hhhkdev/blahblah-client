@@ -17,9 +17,17 @@ export default function PostWritePage() {
 
   return (
     <Wrapper>
-      <TitleInput placeholder="타이틀을 입력해주세요."></TitleInput>
+      <TitleInput
+        placeholder="타이틀을 입력해주세요."
+        value={title}
+        onChange={(e) => setTitle(e.target.title)}
+      ></TitleInput>
       <Space height={20}></Space>
-      <ContentInput placeholder="내용을 입력해주세요."></ContentInput>
+      <ContentInput
+        placeholder="내용을 입력해주세요."
+        value={content}
+        onChange={(e) => setContent(e.target.title)}
+      ></ContentInput>
       <Space height={20}></Space>
 
       <div className="buttons">

@@ -1,8 +1,12 @@
 import axiosClient from ".";
 
 interface Post {
+  id: number;
   title: string;
   content: string;
+  createdAt?: string;
+  modifiedAt?: string;
+  author?: string;
 }
 
 const POST_API = {
@@ -11,16 +15,18 @@ const POST_API = {
     return response.data;
   },
   READ_ALL: async () => {
-    // const response = await axiosClient.get(`/articles/`);
-    // return response.data;
+    // const response = await axiosClient.get(`/articles`);
+    // return response.data.articles;
     const response = await axiosClient.get(``);
-    return response.data;
+    return response.data.articles;
   },
   READ_ONE: async (id: number) => {
     // const response = await axiosClient.get(`/articles/${id}`);
-    // return response.data;
+    // return response.articles.id;
     const response = await axiosClient.get(``);
-    return response.data[id];
+    const articles: Array<Post> = response.data.articles;
+    const article = articles.find((obj) => obj.id == id);
+    return article;
   },
   UPDATE: async (id: number, data: Post) => {
     const response = await axiosClient.patch(`articles/${id}`, data);

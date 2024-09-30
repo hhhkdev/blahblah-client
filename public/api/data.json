@@ -2,13 +2,19 @@
   "articles": [
     {
       "id": 1,
-      "title": "title",
-      "content": "content"
+      "title": "1title",
+      "content": "content",
+      "createdAt": "2024-01-23",
+      "modifiedAt": "2024-01-23",
+      "author": "누군가"
     },
     {
-      "id": 1,
-      "title": "title",
-      "content": "content"
+      "id": 2,
+      "title": "2title",
+      "content": "content",
+      "createdAt": "2024-01-23",
+      "modifiedAt": "2024-01-23",
+      "author": "누군가"
     }
   ]
 }
