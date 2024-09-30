@@ -4,7 +4,7 @@ import ContentInput from "../components/ContentInput";
 import Button from "../components/Button";
 import POST_API from "../apis/POSTAPI";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Space } from "../utils";
 
 export default function PostWritePage() {
@@ -15,14 +15,18 @@ export default function PostWritePage() {
 
   const [id, setId] = useState(-1);
 
+  useEffect(() => {}, []);
+
   return (
     <Wrapper>
       <TitleInput
         placeholder="타이틀을 입력해주세요."
         value={title}
         onChange={(e) => setTitle(e.target.title)}
+        type="text"
       ></TitleInput>
       <Space height={20}></Space>
+
       <ContentInput
         placeholder="내용을 입력해주세요."
         value={content}
@@ -33,9 +37,9 @@ export default function PostWritePage() {
       <div className="buttons">
         <Button onClick={() => navigate("/")}>글 목록</Button>
         <Button
-          onClick={() => {
-            POST_API.CREATE({ title: title, content: content }).then((res) =>
-              setId(res)
+          onClick={async () => {
+            await POST_API.CREATE({ title: title, content: content }).then(
+              (res) => setId(res.id)
             );
             navigate(`/articles/${id}`);
           }}

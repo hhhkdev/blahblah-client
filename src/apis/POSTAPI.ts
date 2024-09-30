@@ -15,18 +15,16 @@ const POST_API = {
     return response.data;
   },
   READ_ALL: async () => {
-    // const response = await axiosClient.get(`/articles`);
+    const response = await axiosClient.get(`/articles`);
+    return response.data;
+    // const response = await axiosClient.get(``);
     // return response.data.articles;
-    const response = await axiosClient.get(``);
-    return response.data.articles;
   },
   READ_ONE: async (id: number) => {
-    // const response = await axiosClient.get(`/articles/${id}`);
+    const response = await axiosClient.get(`/articles/${id}`);
     // return response.articles.id;
-    const response = await axiosClient.get(``);
-    const articles: Array<Post> = response.data.articles;
-    const article = articles.find((obj) => obj.id == id) as Post;
-    return article;
+    // const response = await axiosClient.get(``);
+    return response.data;
   },
   UPDATE: async (id: number, data: Post) => {
     const response = await axiosClient.patch(`articles/${id}`, data);
