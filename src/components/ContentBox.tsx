@@ -9,7 +9,13 @@ const ContentBox = ({ content }: { content: string }) => {
 };
 const Wrapper = styled.div`
   width: 600px;
-  height: 100px;
+  height: 400px;
+
+  font-size: 20px;
+
+  display: flex;
+
+  padding: 17px 0 0 20px;
 
   border: 1px solid white;
 `;

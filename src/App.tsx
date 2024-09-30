@@ -20,7 +20,7 @@ function App() {
             element={<PostWritePage></PostWritePage>}
           ></Route>
           <Route
-            path="/articles/update"
+            path="/articles/update/:id"
             element={<PostEditPage></PostEditPage>}
           ></Route>
         </Routes>

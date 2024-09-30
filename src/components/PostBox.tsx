@@ -43,7 +43,7 @@ function deleteHandler(id: number) {
 }
 
 const Wrapper = styled.div`
-  width: 80%;
+  width: 600px;
   padding: 12px;
   border: 1px solid white;
 

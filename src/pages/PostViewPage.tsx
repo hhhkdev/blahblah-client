@@ -5,6 +5,7 @@ import POST_API from "../apis/POSTAPI";
 import { useEffect, useState } from "react";
 import ContentBox from "../components/ContentBox";
 import Button from "../components/Button";
+import { Space } from "../utils";
 
 export default function PostViewPage() {
   const navigate = useNavigate();
@@ -12,14 +13,16 @@ export default function PostViewPage() {
   const { id } = useParams();
   const [data, setData] = useState(DUMMY_DATA);
 
-  // useEffect(() => {
-  //   POST_API.READ_ONE(Number(id)).then((res) => setData(res));
-  // }, []);
+  useEffect(() => {
+    POST_API.READ_ONE(Number(id)).then((res) => setData(res));
+  }, []);
 
   return (
     <Wrapper>
       <TitleBox title={data.title}></TitleBox>
+      <Space height={20}></Space>
       <ContentBox content={data.content}></ContentBox>
+      <Space height={20}></Space>
       <div className="buttons">
         <Button onClick={() => navigate("/")}>글 목록</Button>
         <Button onClick={() => navigate(`/articles/update/${data.id}`)}>
@@ -38,7 +41,17 @@ export default function PostViewPage() {
   );
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .buttons {
+    display: flex;
+    width: 620px;
+    justify-content: space-between;
+  }
+`;
 
 const DUMMY_DATA = {
   id: 1,

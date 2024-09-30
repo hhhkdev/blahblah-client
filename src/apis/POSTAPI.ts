@@ -11,12 +11,16 @@ const POST_API = {
     return response.data;
   },
   READ_ALL: async () => {
-    const response = await axiosClient.get(`/articles/`);
+    // const response = await axiosClient.get(`/articles/`);
+    // return response.data;
+    const response = await axiosClient.get(``);
     return response.data;
   },
   READ_ONE: async (id: number) => {
-    const response = await axiosClient.get(`/articles/${id}`);
-    return response.data;
+    // const response = await axiosClient.get(`/articles/${id}`);
+    // return response.data;
+    const response = await axiosClient.get(``);
+    return response.data[id];
   },
   UPDATE: async (id: number, data: Post) => {
     const response = await axiosClient.patch(`articles/${id}`, data);

@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  list-style: none;
 }
 
 .logo {
@@ -42,5 +44,5 @@
 }
 
 .App {
-  width: 100vw;
+  width: 1080px;
 }
